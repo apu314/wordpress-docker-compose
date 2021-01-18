@@ -9,8 +9,9 @@ services:
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html # Full wordpress project
-      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
-      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+      - ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      - ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+      - ./ssl:/etc/ssl
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: "${DB_NAME}"
